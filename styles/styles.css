@@ -58,23 +58,88 @@ img {
     max-width: 800px;
 }
 
+/*.navigation {*/
+/*    width: 250px;*/
+/*    padding: 1em;*/
+/*    background: #2e2b23; !* Темный фон *!*/
+/*    color: #fdf6e3; !* Светлый текст *!*/
+/*    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.6); !* Глубокая тень *!*/
+/*    position: fixed;*/
+/*    right: 0;*/
+/*    top: 0;*/
+/*    height: 100%;*/
+/*    overflow-y: auto;*/
+/*    border-left: 3px solid #7b341e; !* Бордовый акцент *!*/
+/*}*/
+
+/*.navigation h4 {*/
+/*    margin-top: 0;*/
+/*    color: #d6c29e; !* Золотистый цвет для заголовков *!*/
+/*    font-weight: bold;*/
+/*    text-transform: uppercase;*/
+/*    border-bottom: 2px solid #d6c29e;*/
+/*    padding-bottom: 0.5em;*/
+/*    font-size: 1.2em;*/
+/*}*/
+
+/*.navigation ul {*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.navigation li {*/
+/*    margin-bottom: 0.5em;*/
+/*}*/
+
+/*.navigation a {*/
+/*    text-decoration: none;*/
+/*    color: #d6c29e; !* Золотистый цвет для ссылок *!*/
+/*    font-weight: bold;*/
+/*    font-size: 1em;*/
+/*    transition: color 0.3s ease;*/
+/*}*/
+
+/*.navigation a:hover {*/
+/*    color: #fdf6e3; !* Изменение цвета на светлый при наведении *!*/
+/*}*/
+
+/*main {*/
+/*    margin-right: 270px;*/
+/*    padding: 2em;*/
+/*    max-width: 800px;*/
+/*}*/
+
+/*h2 {*/
+/*    color: #7b341e; !* Бордовый цвет заголовков *!*/
+/*    border-bottom: 2px solid #d6c29e; !* Золотистая линия *!*/
+/*    margin-bottom: 1em;*/
+/*    padding-bottom: 0.5em;*/
+/*}*/
+
+/*.navigation a.active {*/
+/*    color: #fdf6e3; !* Светлый текст *!*/
+/*    background: #7b341e; !* Бордовый фон *!*/
+/*    padding: 0.2em 0.5em;*/
+/*    border-radius: 5px;*/
+/*    transition: background 0.3s ease, color 0.3s ease;*/
+/*}*/
+
 .navigation {
     width: 250px;
     padding: 1em;
-    background: #2e2b23; /* Темный фон */
-    color: #fdf6e3; /* Светлый текст */
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.6); /* Глубокая тень */
+    background: #2e2b23;
+    color: #fdf6e3;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.6);
     position: fixed;
     right: 0;
     top: 0;
     height: 100%;
     overflow-y: auto;
-    border-left: 3px solid #7b341e; /* Бордовый акцент */
+    border-left: 3px solid #7b341e;
 }
 
 .navigation h4 {
-    margin-top: 0;
-    color: #d6c29e; /* Золотистый цвет для заголовков */
+    color: #d6c29e;
     font-weight: bold;
     text-transform: uppercase;
     border-bottom: 2px solid #d6c29e;
@@ -85,6 +150,11 @@ img {
 .navigation ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+}
+
+.navigation ul ul {
+    margin-left: 1em; /* Отступ для вложенных пунктов */
 }
 
 .navigation li {
@@ -93,14 +163,21 @@ img {
 
 .navigation a {
     text-decoration: none;
-    color: #d6c29e; /* Золотистый цвет для ссылок */
+    color: #d6c29e;
     font-weight: bold;
     font-size: 1em;
     transition: color 0.3s ease;
 }
 
 .navigation a:hover {
-    color: #fdf6e3; /* Изменение цвета на светлый при наведении */
+    text-decoration: underline;
+}
+
+.navigation a.active {
+    color: #fdf6e3;
+    background: #7b341e;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
 }
 
 main {
@@ -109,17 +186,21 @@ main {
     max-width: 800px;
 }
 
-h2 {
-    color: #7b341e; /* Бордовый цвет заголовков */
-    border-bottom: 2px solid #d6c29e; /* Золотистая линия */
+h1 {
+    color: #7b341e;
+    border-bottom: 2px solid #d6c29e;
     margin-bottom: 1em;
     padding-bottom: 0.5em;
 }
 
-.navigation a.active {
-    color: #fdf6e3; /* Светлый текст */
-    background: #7b341e; /* Бордовый фон */
-    padding: 0.2em 0.5em;
-    border-radius: 5px;
-    transition: background 0.3s ease, color 0.3s ease;
+h2 {
+    color: #2e2b23;
+    margin-top: 1em;
+}
+
+/* Подчеркивание активного H1 */
+main h1.highlight {
+    text-decoration: underline;
+    text-decoration-color: #7b341e; /* Бордовый цвет подчеркивания */
+    text-decoration-thickness: 3px;
 }
