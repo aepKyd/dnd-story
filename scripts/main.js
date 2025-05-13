@@ -53,8 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         navLinks.push({ id, link: document.querySelector(`a[href="#${id}"]`) });
     });
+    const navLinksElem = document.querySelectorAll('.navigation a');
 
-    navLinks.forEach(link => {
+    navLinksElem.forEach(link => {
         link.addEventListener('click', function () {
             if (window.innerWidth <= 768) { // Условие для мобильных устройств
                 navigation.classList.add('hidden');
