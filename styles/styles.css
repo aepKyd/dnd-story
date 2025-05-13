@@ -198,8 +198,28 @@ h2 {
     margin-top: 1em;
 }
 
-/* Подчеркивание активного H1 */
-main h1.highlight {
+/* Подчеркивание активного пункта H1 в меню */
+.navigation a.highlight {
+    text-decoration: underline;
+    text-decoration-color: #7b341e; /* Бордовый цвет подчеркивания */
+    text-decoration-thickness: 3px;
+}
+
+/* Скрытые подменю */
+.sub-menu {
+    display: none;
+    margin-left: 1em; /* Отступ для вложенных пунктов */
+    list-style: none;
+    padding: 0;
+}
+
+/* Активное подменю */
+.sub-menu:not(.collapsed) {
+    display: block;
+}
+
+/* Подчеркивание активного пункта H1 в меню */
+.navigation a.highlight {
     text-decoration: underline;
     text-decoration-color: #7b341e; /* Бордовый цвет подчеркивания */
     text-decoration-thickness: 3px;

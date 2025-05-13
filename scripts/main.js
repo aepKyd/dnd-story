@@ -18,14 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const a = document.createElement("a");
             a.href = `#${id}`;
             a.textContent = text;
-            a.classList.add("nav-link");
+            a.classList.add("nav-link", "h1-link");
             li.appendChild(a);
-            menu.appendChild(li);
 
             // Создаем подменю для h2
             const ul = document.createElement("ul");
+            ul.classList.add("sub-menu");
             li.appendChild(ul);
-            currentParentItem = ul;
+            menu.appendChild(li);
+            currentParentItem = li; // Запоминаем текущий пункт родителя
         } else if (tagName === "h2" && currentParentItem) {
             // Добавляем элемент второго уровня в текущий h1
             const li = document.createElement("li");
@@ -34,14 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
             a.textContent = text;
             a.classList.add("nav-link");
             li.appendChild(a);
-            currentParentItem.appendChild(li);
+            currentParentItem.querySelector(".sub-menu").appendChild(li);
         }
 
         // Сохраняем ссылки для дальнейшего выделения активного пункта
         navLinks.push({ id, link: document.querySelector(`a[href="#${id}"]`) });
     });
 
-    // Обновляем активный пункт меню и подчеркивание H1
+    // Обновляем активный пункт меню и подчеркивание H1 в меню
     function updateActiveLink() {
         let currentSection = null;
 
@@ -60,14 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         navLinks.forEach(({ id, link }) => {
-            if (currentSection && id === currentSection.id) {
+            if (currentSection && id === currentSection.id && "h2" === currentSection.tagName.toLowerCase()) {
                 link.classList.add("active");
             } else {
                 link.classList.remove("active");
             }
         });
 
-        // Подчеркивание для активного H1, если активен один из его H2
+        // Подчеркивание для активного H1 в меню и управление видимостью H2
         h1Headers.forEach((h1, index) => {
             const h1Top = h1.offsetTop;
             const nextH1Top =
@@ -75,27 +76,30 @@ document.addEventListener("DOMContentLoaded", () => {
                     ? h1Headers[index + 1].offsetTop
                     : document.body.scrollHeight;
 
-            // Проверяем, есть ли активный H2, принадлежащий текущему H1
-            const hasActiveH2 = Array.from(sections).some((section) => {
-                if (
-                    section.tagName.toLowerCase() === "h2" &&
-                    section.offsetTop >= h1Top &&
-                    section.offsetTop < nextH1Top
-                ) {
-                    return (
-                        window.scrollY + window.innerHeight / 2 >= section.offsetTop &&
-                        window.scrollY + window.innerHeight / 2 < section.offsetTop + section.offsetHeight
-                    );
-                }
-                return false;
-            });
+            // Проверяем, находится ли экран в пределах контента H1
+            const isActive = window.scrollY + window.innerHeight / 2 >= h1Top &&
+                window.scrollY < nextH1Top;
 
-            if (hasActiveH2) {
-                h1.classList.add("highlight");
+            // Выделяем пункт меню H1
+            const h1Link = document.querySelector(`.nav-link[href="#${h1.id}"]`);
+            const subMenu = h1Link.parentElement.querySelector(".sub-menu");
+
+            if (isActive) {
+                h1Link.classList.add("highlight");
+                subMenu.classList.remove("collapsed"); // Показываем вложенные H2
             } else {
-                h1.classList.remove("highlight");
+                h1Link.classList.remove("highlight");
+                subMenu.classList.add("collapsed"); // Скрываем вложенные H2
             }
         });
+
+        // Гарантируем, что только один заголовок H1 выделен
+        const highlightedLinks = document.querySelectorAll(".h1-link.highlight");
+        if (highlightedLinks.length > 1) {
+            highlightedLinks.forEach((link, index) => {
+                if (index > 0) link.classList.remove("highlight");
+            });
+        }
     }
 
     window.addEventListener("scroll", updateActiveLink);
