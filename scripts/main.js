@@ -48,10 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sections.forEach((section, index) => {
             const sectionTop = section.offsetTop;
-            const nextSectionTop =
-                index < sections.length - 1
-                    ? sections[index + 1].offsetTop
-                    : document.body.scrollHeight;
+            const nextSectionTop = index < sections.length - 1
+                ? sections[index + 1].offsetTop
+                : document.body.scrollHeight;
 
             const scrollPosition = window.scrollY + window.innerHeight / 2;
 
@@ -61,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         navLinks.forEach(({ id, link }) => {
-            if (currentSection && id === currentSection.id && "h2" === currentSection.tagName.toLowerCase()) {
+            if (currentSection && id === currentSection.id && currentSection.tagName.toLowerCase() === "h2") {
                 link.classList.add("active");
             } else {
                 link.classList.remove("active");
@@ -71,14 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Подчеркивание для активного H1 в меню и управление видимостью H2
         h1Headers.forEach((h1, index) => {
             const h1Top = h1.offsetTop;
-            const nextH1Top =
-                index < h1Headers.length - 1
-                    ? h1Headers[index + 1].offsetTop
-                    : document.body.scrollHeight;
+            const nextH1Top = index < h1Headers.length - 1
+                ? h1Headers[index + 1].offsetTop
+                : document.body.scrollHeight;
 
             // Проверяем, находится ли экран в пределах контента H1
-            const isActive = window.scrollY + window.innerHeight / 2 >= h1Top &&
-                window.scrollY < nextH1Top;
+            const isActive = window.scrollY >= h1Top && window.scrollY < nextH1Top;
 
             // Выделяем пункт меню H1
             const h1Link = document.querySelector(`.nav-link[href="#${h1.id}"]`);
@@ -93,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Гарантируем, что только один заголовок H1 выделен
+        // Гарантируем, что выделен только один заголовок H1
         const highlightedLinks = document.querySelectorAll(".h1-link.highlight");
         if (highlightedLinks.length > 1) {
             highlightedLinks.forEach((link, index) => {
