@@ -20,14 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
         menu.classList.toggle("hidden");
     });
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', function () {
-            if (window.innerWidth <= 768) { // Условие для мобильных устройств
-                navigation.classList.add('hidden');
-            }
-        });
-    });
-
     // Создаем меню
     let currentParentItem = null;
 
@@ -60,6 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         navLinks.push({ id, link: document.querySelector(`a[href="#${id}"]`) });
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 768) { // Условие для мобильных устройств
+                navigation.classList.add('hidden');
+            }
+        });
     });
 
     function updateActiveLink() {
