@@ -1,15 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Получаем все заголовки h2
     const sections = document.querySelectorAll("main h2[id]");
     const navLinks = document.querySelectorAll(".nav-link");
 
+    // Функция для определения активного раздела
     function updateActiveLink() {
         let currentSection = null;
 
-        sections.forEach((section) => {
-            const sectionTop = section.getBoundingClientRect().top;
+        sections.forEach((section, index) => {
+            const sectionTop = section.offsetTop;
+            const nextSectionTop =
+                index < sections.length - 1
+                    ? sections[index + 1].offsetTop
+                    : document.body.scrollHeight;
 
-            // Проверяем, если верх раздела находится выше середины экрана, но ниже верхней части
-            if (sectionTop <= window.innerHeight / 2 && sectionTop >= -section.offsetHeight / 2) {
+            // Позиция скролла
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+            // Проверяем, находится ли пользователь между текущим и следующим заголовком
+            if (scrollPosition >= sectionTop && scrollPosition < nextSectionTop) {
                 currentSection = section;
             }
         });
@@ -23,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Запускаем обновление при прокрутке и загрузке
+    // Добавляем обработчик прокрутки
     window.addEventListener("scroll", updateActiveLink);
-    updateActiveLink();
+    updateActiveLink(); // Запуск при загрузке страницы
 });
