@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = [];
     const h1Headers = document.querySelectorAll("main h1");
     const toggleButton = document.createElement("button");
+    const navigation = document.querySelector('.navigation');
 
     // Настраиваем кнопку для скрытия/показа меню
     toggleButton.innerHTML = `
@@ -17,6 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     toggleButton.addEventListener("click", () => {
         menu.classList.toggle("hidden");
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 768) { // Условие для мобильных устройств
+                navigation.classList.add('hidden');
+            }
+        });
     });
 
     // Создаем меню
