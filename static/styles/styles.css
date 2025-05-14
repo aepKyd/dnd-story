@@ -301,4 +301,29 @@ h2 {
         width: 32px; /* Increased icon size for mobile */
         height: 32px; /* Increased icon size for mobile */
     }
+
+    .dnd-table, .dnd-table thead, .dnd-table tbody, .dnd-table tr, .dnd-table td, .dnd-table th {
+        display: block;
+    }
+
+    .dnd-table tr {
+        margin-bottom: 15px;
+    }
+
+    .dnd-table th {
+        display: none; /* Скрыть заголовки таблицы */
+    }
+
+    .dnd-table td {
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+    }
+
+    .dnd-table td::before {
+        content: attr(data-label); /* Используем атрибут data-label для отображения заголовков */
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+    }
 }
