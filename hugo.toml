@@ -1,0 +1,7 @@
+baseURL = "http://88.210.35.36"
+languageCode = "ru"
+title = "Kyd DND Story"
+theme = ""
+
+[params]
+renderToHTML = true

@@ -1,0 +1,224 @@
+body {
+    display: flex;
+    font-family: 'Crimson Pro', serif;
+    background: #fdf6e3;
+    color: #2e2b23;
+    line-height: 1.8;
+    margin: 2em auto;
+    max-width: 800px;
+    padding: 2em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    color: #7b341e;
+    border-bottom: 2px solid #d6c29e;
+    padding-bottom: 0.2em;
+    margin-top: 2em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+p {
+    margin: 1em 0;
+    text-indent: 1.5em;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+em, i {
+    font-style: italic;
+}
+
+blockquote {
+    border-left: 4px solid #a52a2a;
+    background: #f3ece0;
+    padding: 1em;
+    margin: 1.5em 0;
+    font-style: italic;
+}
+
+blockquote p {
+    text-indent: 0  ;
+}
+
+code {
+    background: #eaeaea;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+img {
+    max-width: 100%; /* Ensures images scale correctly */
+    height: auto; /* Maintains aspect ratio */
+}
+
+/* Navigation menu styles */
+.navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40vw;
+    height: 100%;
+    background: #2e2b23;
+    color: #fdf6e3;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+    z-index: 999;
+    padding-left: 20px;
+}
+
+.navigation h4 {
+    color: #d6c29e;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #d6c29e;
+    padding-bottom: 0.5em;
+    font-size: 1.2em;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5em;
+}
+
+.navigation ul ul {
+    margin-left: 1em; /* Indent for nested items */
+}
+
+.navigation li {
+    margin-bottom: 0.5em;
+    margin-left: 1.33em;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #d6c29e;
+    font-weight: bold;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    text-decoration: underline;
+}
+
+.navigation a.active {
+    color: #fdf6e3;
+    background: #7b341e;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+}
+
+main {
+    padding: 2em;
+    max-width: 800px;
+}
+
+h1 {
+    color: #7b341e;
+    border-bottom: 2px solid #d6c29e;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+}
+
+h2 {
+    color: #2e2b23;
+    margin-top: 1em;
+}
+
+/* Highlight for active menu item */
+.navigation a.highlight {
+    text-decoration: underline;
+    text-decoration-color: #7b341e; /* Burgundy underline */
+    text-decoration-thickness: 3px;
+}
+
+/* Hidden submenus */
+.sub-menu {
+    display: none;
+    margin-left: 1em; /* Indent for nested items */
+    list-style: none;
+    padding: 0;
+}
+
+/* Active submenu */
+.sub-menu:not(.collapsed) {
+    display: block;
+}
+
+/* Button to toggle menu visibility */
+.menu-toggle {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    background-color: #d4af37; /* Deep gold */
+    color: #8b4513; /* Brown for icon */
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* SVG inside the button */
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.hidden {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Fullscreen navigation for mobile devices */
+@media (max-width: 768px) {
+    .navigation {
+        width: 100vw;
+        height: 100vh;
+        padding: 1em;
+    }
+
+    main {
+        margin-right: 0;
+        padding: 1em;
+    }
+
+    .menu-toggle {
+        top: 0.5em;
+        right: 0.5em;
+        width: 70px; /* Increased size for mobile */
+        height: 70px; /* Increased size for mobile */
+    }
+
+    .menu-icon {
+        width: 32px; /* Increased icon size for mobile */
+        height: 32px; /* Increased icon size for mobile */
+    }
+}

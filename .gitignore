@@ -1,0 +1,57 @@
+# Hugo generated files
+/public/
+/resources/_gen/
+/assets/js/bundles/
+/hugo_stats.json
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Node.js dependencies (if using npm or yarn for frontend)
+node_modules/
+package-lock.json
+yarn.lock
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Temporary files and directories
+*.tmp
+*.swp
+*.swo
+
+# IDE-specific files
+# JetBrains IDEs (IntelliJ IDEA, WebStorm, PyCharm, etc.)
+.idea/
+*.iml
+out/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim/Neovim swap files
+*.swp
+*.swo
+
+# Emacs
+*~
+\#*\#
+
+# Other common IDE files
+*.env
