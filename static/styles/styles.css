@@ -302,28 +302,57 @@ h2 {
         height: 32px; /* Increased icon size for mobile */
     }
 
-    .dnd-table, .dnd-table thead, .dnd-table tbody, .dnd-table tr, .dnd-table td, .dnd-table th {
+    .dnd-table, .dnd-table tbody, .dnd-table tr, .dnd-table td, .dnd-table th {
         display: block;
+    }
+
+    .dnd-table, .dnd-table tbody, .dnd-table tr, .dnd-table td, .dnd-table th {
+        display: block;
+    }
+
+    .dnd-table thead {
+        display: none;
     }
 
     .dnd-table tr {
         margin-bottom: 15px;
+        border: 2px solid #c6ab88; /* Светло-коричневый цвет рамки карточки */
+        border-radius: 5px;
+        padding: 10px;
+        background: #fffdfa; /* Фон карточки */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     }
 
     .dnd-table th {
-        display: none; /* Скрыть заголовки таблицы */
+        display: none; /* Убираем заголовки таблицы */
     }
 
     .dnd-table td {
-        position: relative;
-        padding-left: 50%;
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0; /* Вертикальный отступ между строками */
         text-align: left;
+        border: none;
+    }
+
+    .dnd-table td + td {
+        border-top: 1px solid #c6ab88; /* Горизонтальная линия между строками */
     }
 
     .dnd-table td::before {
-        content: attr(data-label); /* Используем атрибут data-label для отображения заголовков */
-        position: absolute;
-        left: 10px;
+        content: attr(data-label); /* Используем атрибут data-label для заголовков */
         font-weight: bold;
+        color: #4c2a14;
+        flex-shrink: 0;
+        margin-right: 10px;
     }
+
+    .dnd-table tr:nth-child(even) td {
+        background: white; /* Легкий фон для четных строк */
+    }
+
+    .dnd-table tr:hover td {
+        background: white;
+    }
+
 }

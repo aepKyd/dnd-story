@@ -36,11 +36,11 @@
                 <tbody>
                 {{ range .Params.Participants }}
                 <tr>
-                    <td>{{ .PlayerName }}</td>
-                    <td>{{ .CharacterName }}</td>
-                    <td>{{ .Class }}</td>
-                    <td>{{ .Race }}</td>
-                    <td>{{ .Level }}</td>
+                    <td data-label="Игрок">{{ .PlayerName }}</td>
+                    <td data-label="Персонаж">{{ .CharacterName }}</td>
+                    <td data-label="Класс">{{ .Class }}</td>
+                    <td data-label="Раса">{{ .Race }}</td>
+                    <td data-label="Уровень">{{ .Level }}</td>
                 </tr>
                 {{ end }}
                 </tbody>
