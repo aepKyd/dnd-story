@@ -326,6 +326,7 @@ h2 {
 
     .dnd-table, .dnd-table tbody, .dnd-table tr, .dnd-table td, .dnd-table th {
         display: block;
+        background-color: #fdf6e3;
     }
 
     .dnd-table thead {
