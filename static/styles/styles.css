@@ -233,9 +233,10 @@ h2 {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     background: white;
     color: black;
+    letter-spacing: 1px;
 }
 
 .dnd-table th {
@@ -253,6 +254,7 @@ h2 {
     border: 1px solid black;
     padding: 8px;
     text-align: left;
+    font-size: 1.1rem;
 }
 
 .dnd-table tr:nth-child(even) td {
