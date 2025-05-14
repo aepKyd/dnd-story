@@ -197,6 +197,84 @@ h2 {
     transition: transform 0.3s ease-in-out;
 }
 
+/* Стиль для details */
+.dnd-details {
+    margin: 1rem 0;
+    padding: 10px;
+    border: 2px solid #8b5a2b;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #fffdfa, #f4f1e0);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    font-family: 'Crimson Pro', serif;
+}
+
+.dnd-details summary {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4c2a14;
+    cursor: pointer;
+    /*text-shadow: 1px 1px 2px #000;*/
+    background-color: #e8dcc3;
+    padding: 10px;
+    border: 2px solid #8b5a2b;
+    border-radius: 5px;
+}
+
+.dnd-details summary:hover {
+    background-color: #d8c4a9;
+    color: #8b0000;
+}
+
+.dnd-details[open] {
+    border-color: #b22222;
+}
+
+.dnd-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1rem;
+    background: white;
+    color: black;
+}
+
+.dnd-table th {
+    background: #c6ab88; /* Светло-коричневый оттенок, как в книге игрока */
+    color: black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black;
+    text-transform: capitalize;
+}
+
+.dnd-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.dnd-table tr:nth-child(even) td {
+    background: #f6f1eb; /* Легкий фон для четных строк */
+}
+
+.dnd-table tr:nth-child(odd) td {
+    background: white; /* Белый фон для нечетных строк */
+}
+
+.dnd-table tr:hover td {
+    background: #ddd; /* Подсветка строки при наведении */
+}
+/* Дополнительные декоративные элементы */
+.dnd-table caption {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #4c2a14;
+    text-shadow: 1px 1px 2px #000;
+}
+
 /* Fullscreen navigation for mobile devices */
 @media (max-width: 768px) {
     .navigation {

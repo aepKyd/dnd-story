@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{{ .Site.Title }}</title>
-    <link rel="icon" href="/favicon.png" />
-    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="icon" href="/favicon.png"/>
+    <link rel="stylesheet" href="/styles/styles.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,9 +16,40 @@
 </div>
 
 <main>
-    {{ range .Site.RegularPages }}
-    <h1 id="{{ .File.BaseFileName }}">{{ .Title }}</h1>
-    {{ .Content }}
+    {{ range sort .Site.RegularPages ".Params.Order" }}
+    <section>
+        <h1 id="{{ .File.BaseFileName }}">{{ .Title }}</h1>
+        {{ .Content }}
+        {{ if .Params.Participants }}
+        <details class="dnd-details">
+            <summary>Игровая информация</summary>
+            <table id="session-participants" class="dnd-table">
+                <thead>
+                <tr>
+                    <th>Игрок</th>
+                    <th>Персонаж</th>
+                    <th>Класс</th>
+                    <th>Раса</th>
+                    <th>Уровень</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{ range .Params.Participants }}
+                <tr>
+                    <td>{{ .PlayerName }}</td>
+                    <td>{{ .CharacterName }}</td>
+                    <td>{{ .Class }}</td>
+                    <td>{{ .Race }}</td>
+                    <td>{{ .Level }}</td>
+                </tr>
+                {{ end }}
+                </tbody>
+            </table>
+            {{ else }}
+            <p>Нет данных об участниках.</p>
+        </details>
+        {{ end }}
+    </section>
     {{ end }}
 </main>
 

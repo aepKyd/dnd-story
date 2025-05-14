@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+<main>
+    <h1>{{ .Title }}</h1>
+
+    {{ with .Params.participants }}
+    <details>
+        <summary>Участники сессии</summary>
+        <table>
+            <thead>
+            <tr>
+                <th>Имя участника</th>
+                <th>Имя персонажа</th>
+                <th>Раса персонажа</th>
+                <th>Класс персонажа</th>
+                <th>Уровень персонажа</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{ range . }}
+            <tr>
+                <td>{{ .name }}</td>
+                <td>{{ .character_name }}</td>
+                <td>{{ .race }}</td>
+                <td>{{ .class }}</td>
+                <td>{{ .level }}</td>
+            </tr>
+            {{ end }}
+            </tbody>
+        </table>
+    </details>
+    {{ end }}
+
+    {{ .Content }}
+</main>
+</body>
+</html>

@@ -1,6 +1,25 @@
-+++
-title = "Сессия 2"
-+++
+---
+title: "Сессия 2"
+date: 2025-05-09
+Order: 2
+Participants:
+  - PlayerName: "Алсу"
+    CharacterName: "Хельга"
+    Class: "Воин"
+    Race: "Дворф"
+    Level: 1
+  - PlayerName: "Сергей"
+    CharacterName: "Грызл"
+    Class: "Плут"
+    Race: "Крысолюд"
+    Level: 1
+  - PlayerName: "Роман"
+    CharacterName: "Мох"
+    Class: "Плут"
+    Race: "Табакси"
+    Level: 1
+
+---
 
 ## 1. Тень алхимика и тайна крысолюда
 
