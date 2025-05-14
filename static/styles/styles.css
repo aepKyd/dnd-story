@@ -203,9 +203,10 @@ h2 {
     padding: 10px;
     border: 2px solid #8b5a2b;
     border-radius: 8px;
-    background: linear-gradient(to bottom, #fffdfa, #f4f1e0);
+    /*background: linear-gradient(to bottom, #fffdfa, #f4f1e0);*/
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     font-family: 'Crimson Pro', serif;
+    background-color: #e8dcc3;
 }
 
 .dnd-details summary {
@@ -216,17 +217,34 @@ h2 {
     /*text-shadow: 1px 1px 2px #000;*/
     background-color: #e8dcc3;
     padding: 10px;
-    border: 2px solid #8b5a2b;
     border-radius: 5px;
 }
 
 .dnd-details summary:hover {
-    background-color: #d8c4a9;
     color: #8b0000;
+    background-color: inherit;
+}
+
+.dnd-details:hover {
+    background-color: #d8c4a9;
+}
+
+.dnd-details:hover summary {
+    background-color: #d8c4a9;
 }
 
 .dnd-details[open] {
     border-color: #b22222;
+    background: #fdf6e3;
+}
+
+.dnd-details[open] summary {
+    background: #fdf6e3;
+}
+
+.dnd-details[open] summary:hover {
+    color: #8b0000;
+    background-color:  #d8c4a9;
 }
 
 .dnd-table {
@@ -317,7 +335,7 @@ h2 {
     .dnd-table tr {
         margin-bottom: 15px;
         border: 2px solid #c6ab88; /* Светло-коричневый цвет рамки карточки */
-        border-radius: 5px;
+        border-radius: 10px;
         padding: 10px;
         background: #fffdfa; /* Фон карточки */
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);

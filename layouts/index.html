@@ -23,6 +23,18 @@
         {{ if .Params.Participants }}
         <details class="dnd-details">
             <summary>Игровая информация</summary>
+
+            <!-- Информация о сессии -->
+            <div class="session-info">
+                <p><strong>Дата проведения:</strong> {{ .Params.Date | time.Format "02.01.2006" }}</p>
+                <p><strong>Длительность:</strong> {{ .Params.duration }}</p>
+                <p><strong>Полученный опыт:</strong> {{ .Params.experience }} XP</p>
+
+                {{ if .Params.good_roleplay }}
+                <p><strong>Игроки с хорошим отыгрышем:</strong> {{ delimit .Params.good_roleplay ", " }}</p>
+                {{ end }}
+            </div>
+
             <table id="session-participants" class="dnd-table">
                 <thead>
                 <tr>
